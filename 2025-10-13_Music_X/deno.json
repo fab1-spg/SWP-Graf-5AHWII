@@ -1,6 +1,10 @@
 {
   "tasks": {
-    "dev": "deno run --watch main.ts"
+    "dev": "deno run --watch main.ts",
+    "seed": "deno run --allow-read --allow-write --allow-net --allow-env --allow-run seed.ts",
+    "db:push": "deno run -A --unstable npm:prisma db push",
+    "db:studio": "deno run -A --unstable npm:prisma studio",
+    "db:generate": "deno run -A --unstable npm:prisma generate"
   },
   "imports": {
     "@faker-js/faker": "npm:@faker-js/faker@^10.0.0",
