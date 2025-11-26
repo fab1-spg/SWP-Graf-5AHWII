@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet"
+          href="quiz.css">
+    <script src="quiz.js"
+            type="module"></script>
+    <link rel="icon"
+          type="image/x-icon"
+          href="favicon.ico">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Startseite -->
+        <div id="startpage" class="page active">
+            <div class="header">
+                <h1 class="quiz-title">Quiz App</h1>
+                <p class="quiz-subtitle">Teste dein Wissen in verschiedenen Kategorien</p>
+            </div>
+            
+            <div class="settings-container">
+                <div class="setting-group">
+                    <label for="category">Kategorie</label>
+                    <select id="category" class="setting-input">
+                        <option value="0">Standardfragen</option>
+                        <option value="11">Film</option>
+                        <option value="24">Politik</option>
+                        <option value="17">Wissenschaft</option>
+                        <option value="23">Geschichte</option>
+                        <option value="21">Sport</option>
+                    </select>
+                </div>
+                
+                <div class="setting-group">
+                    <label for="hardness">Schwierigkeit</label>
+                    <select id="hardness" class="setting-input">
+                        <option value="easy">Einfach</option>
+                        <option value="medium">Mittel</option>
+                        <option value="hard">Schwer</option>
+                    </select>
+                </div>
+                
+                <div class="setting-group">
+                    <label for="howmany">Anzahl Fragen</label>
+                    <input type="number" 
+                           id="howmany"
+                           class="setting-input"
+                           min="2" 
+                           max="50" 
+                           value="10">
+                </div>
+            </div>
+            
+            <button type="button" id="start-button" class="btn btn-primary">
+                Quiz starten
+            </button>
+        </div>
+
+        <!-- Quiz-Seite -->
+        <div id="question-container" class="page">
+            <div class="quiz-header">
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-label">Frage</span>
+                        <span id="question-number" class="stat-value">1/10</span>
+                    </div>
+                    <div class="stat correct">
+                        <span class="stat-label">Richtig</span>
+                        <span id="correct-count" class="stat-value">0</span>
+                    </div>
+                    <div class="stat wrong">
+                        <span class="stat-label">Falsch</span>
+                        <span id="wrong-count" class="stat-value">0</span>
+                    </div>
+                </div>
+                <div class="timer-container">
+                    <span class="timer-label">Zeit</span>
+                    <span id="timer" class="timer">00:00</span>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div id="progress" class="progress-fill"></div>
+                </div>
+            </div>
+            
+            <div class="question-content">
+                <h2 id="question" class="question-text">Frage wird geladen...</h2>
+                <div id="options" class="options-grid"></div>
+            </div>
+            
+            <div class="actions">
+                <button id="weiter-btn" class="btn btn-secondary" disabled>
+                    Nächste Frage
+                </button>
+                <button id="restart-btn" class="btn btn-outline">
+                    Quiz neu starten
+                </button>
+            </div>
+        </div>
+
+        <!-- Ergebnis-Seite -->
+        <div id="endcontainer" class="page">
+            <div class="result-header">
+                <h2 class="result-title">Quiz beendet!</h2>
+                <div class="result-icon">🏆</div>
+            </div>
+            
+            <div class="result-stats">
+                <div class="result-stat correct">
+                    <span class="result-value" id="final-correct">0</span>
+                    <span class="result-label">Richtig</span>
+                </div>
+                <div class="result-stat wrong">
+                    <span class="result-value" id="final-wrong">0</span>
+                    <span class="result-label">Falsch</span>
+                </div>
+                <div class="result-stat time">
+                    <span class="result-value" id="final-time">00:00</span>
+                    <span class="result-label">Zeit</span>
+                </div>
+            </div>
+            
+            <div class="score-container">
+                <div class="score-label">Punktzahl</div>
+                <div class="score-value" id="final-score">0%</div>
+            </div>
+            
+            <div class="result-actions">
+                <button id="new-quiz-btn" class="btn btn-primary">
+                    Neues Quiz starten
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
